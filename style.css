@@ -1,88 +1,107 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
-.background {
-    width: 100%;
-    min-height: 100vw;
-    background: linear-gradient(55deg, rgba(114, 221, 216, 0.864), rgb(141, 230, 124));
-    overflow: auto;
+body {
+  width: 100%;
+  min-height: 100vw;
+  background: linear-gradient(55deg, rgba(114, 221, 216, 0.864), rgb(141, 230, 124));
+  overflow: auto;
 }
 
 .new-task-container {
-    width:19%;
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-    margin-left: 15px;
-    margin-top: 50px;
-    overflow: auto;
+  width:49%;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  margin-top:50px;
+  margin-left: 15px;
+
+  overflow: auto;
 }
 
 .new-task-container h1 {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    color: rgb(14, 122, 158);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  color: rgb(14, 122, 158);
 
 }
 
 .new-task-container form {
-    margin: 0 1em 1em 1em;
-    padding: 0.3em;
-    padding-left: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(225, 225, 225, 0.864);
-    border-radius: 20px;
+  margin: 0 1em 1em 1em;
+  padding: 0.3em;
+  padding-left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(225, 225, 225, 0.864);
+  border-radius: 20px;
 }
 
 .new-task-container form [type="text"] { 
-    border-radius: 10px;
-    background: rgba(225, 225, 225, 0.864);
-    border: 0;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  background: transparent;
+  border: 0;
 }
 
-.new-task-container form [type="submit"] { 
-    border-radius: 20px;
-    background: rgba(107, 45, 207, 0.864);
-    border: 0;
-    padding: 0.65em 2em;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    margin: -0.3em;
+.new-task-container form button { 
+  border-radius: 20px;
+  background: rgba(50, 234, 167, 0.864);
+  border: 0;
+  padding: 0.65em 2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  margin: -0.3em;
 }
 
 .tasks {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px 15px;
-    
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 15px;
 }
 
 .tasks div {
-    background: white;
-    color: rgb(14, 122, 158);
-    width: 19.25%;
-    min-height: 38vw;
-    border-radius: 10px;
+  background: white;
+  color: rgb(14, 122, 158);
+  width: 19.25%;
+  min-height: 38vw;
+  border-radius: 10px;
 }
 
 .tasks div h2 {
-    text-align: center;
-    padding-top: 0.5em;
-}
-
-.tasks div ul {
-    list-style: none;
-    padding: 1em;
+  text-align: center;
+  padding-top: 0.5em;
 }
 
 .tasks div ul li{
-    padding: 1em 0em;
+  list-style: none;
+  padding: 1em;
+  padding-left: 2.3em;
+  cursor: pointer;
+  position: relative;
 }
+
+.tasks div ul li::before{
+  content: '';
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(images/radio_button.png);
+  background-size: cover;
+  background-position: center;
+  top: 10px;
+  left: 8px;
+  
+}
+
+.tasks div ul li:hover::before {
+  background-image: url(images/radio_button_hover.png);
+}
+

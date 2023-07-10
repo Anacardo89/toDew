@@ -8,32 +8,50 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="background">
-      <div class="new-task-container">
-        <h1>Tasks</h1>
+    <div class="new-task-container">
+      <h1>Tasks</h1>
 
-        <form>
-          <input type="text" name="task-name" placeholder="It's what you have ToDo :)">
-          <input type="submit" value="Add">
-        </form>
+      <form>
+        <input type="text" id="task" name="task-name" placeholder="It's what you have ToDo">
+        <button onclick="addTask();return false;">Add</button>
+      </form>
+    </div>
+
+    <div class="tasks">
+      <div id="todo-container" class="todo-container">
+        <h2>Todo</h2>
+        <ul id="todo-list">
+          <!--
+          <li class="checked">Task 1</li>
+          <li>Task 2</li>
+          <li>Task 3</li>
+          -->
+        </ul>
       </div>
+      <div class="working-container">
+        <h2>Working on</h2>
+        <ul id="working-list">
 
-      <div class="tasks">
-        <div class="todo-container">
-          <h2>Todo</h2>
-          <ul>
-            <li>Task 1</li>
-            <li>Task 2</li>
-            <li>Task 3</li>
-          </ul>
-        </div>
-        <div class="working-container"><h2>Working on</h2></div>
-        <div class="pending-container"><h2>Pending</h2></div>
-        <div class="test-container"><h2>Testing</h2></div>
-        <div class="done-container"><h2>Done</h2></div>
+        </ul>
       </div>
-      
+      <div class="pending-container">
+        <h2>Pending</h2>
+        <ul id="pending-list">
 
+        </ul>
+      </div>
+      <div class="testing-container">
+        <h2>Testing</h2>
+        <ul id="testing-list">
+
+        </ul>
+      </div>
+      <div class="done-container">
+        <h2>Done</h2>
+        <ul id="done-list">
+
+        </ul>
+      </div>
     </div>
     
 	<script src="index.js"></script>
