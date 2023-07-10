@@ -12,23 +12,24 @@
     overflow: auto;
 }
 
-.project-container {
-    width:30%;
+.new-task-container {
+    width:19%;
     background: white;
     border-radius: 10px;
     text-align: center;
-    margin-left: 25px;
+    margin-left: 15px;
     margin-top: 50px;
     overflow: auto;
 }
 
-.project-container h1 {
+.new-task-container h1 {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    color: rgb(14, 122, 158);
 
 }
 
-.project-container form {
+.new-task-container form {
     margin: 0 1em 1em 1em;
     padding: 0.3em;
     padding-left: 1em;
@@ -39,13 +40,13 @@
     border-radius: 20px;
 }
 
-.project-container form [type="text"] { 
+.new-task-container form [type="text"] { 
     border-radius: 10px;
     background: rgba(225, 225, 225, 0.864);
     border: 0;
 }
 
-.project-container form [type="submit"] { 
+.new-task-container form [type="submit"] { 
     border-radius: 20px;
     background: rgba(107, 45, 207, 0.864);
     border: 0;
@@ -54,4 +55,34 @@
     font-weight: bold;
     color: white;
     margin: -0.3em;
+}
+
+.tasks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 15px;
+    
+}
+
+.tasks div {
+    background: white;
+    color: rgb(14, 122, 158);
+    width: 19.25%;
+    min-height: 38vw;
+    border-radius: 10px;
+}
+
+.tasks div h2 {
+    text-align: center;
+    padding-top: 0.5em;
+}
+
+.tasks div ul {
+    list-style: none;
+    padding: 1em;
+}
+
+.tasks div ul li{
+    padding: 1em 0em;
 }
