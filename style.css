@@ -42,10 +42,12 @@ body {
 }
 
 .new-task-container form [type="text"] { 
+  outline: none;
   font-size: 1.3rem;
   border-radius: 10px;
   background: transparent;
   border: 0;
+  padding-right: 12em;
 }
 
 .new-task-container form button { 
@@ -87,11 +89,16 @@ body {
   position: relative;
 }
 
+.tasks div ul li.checked{
+  color: #555;
+  text-decoration: line-through;
+}
+
 .tasks div ul li::before{
   content: '';
   position: absolute;
-  height: 28px;
-  width: 28px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   background-image: url(images/radio_button.png);
   background-size: cover;
@@ -100,8 +107,31 @@ body {
   left: 8px;
   
 }
+.tasks div ul li.checked::before{
+  background-image: url(images/radio_button_check.png);
+}
+
+.tasks div ul li.checked:hover::before{
+  background-image: url(images/radio_button_check.png);
+}
 
 .tasks div ul li:hover::before {
   background-image: url(images/radio_button_hover.png);
+}
+
+.tasks div ul li span{
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.4rem;
+  color: #555;
+  line-height: 30px;
+  text-align: center;
+}
+.tasks div ul li span:hover{
+  background: rgba(225, 225, 225, 0.864);
+  border-radius: 50%;
 }
 
