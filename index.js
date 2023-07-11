@@ -1,6 +1,15 @@
 const inputBox = document.getElementById("task");
 const todoList = document.getElementById("todo-list");
 
+const p = document.getElementsByTagName('ul');
+console.log(p);
+
+// NEEDED FOR FIREFOX
+// initializes empty localStorage.data if there is no data to show
+if (localStorage.data === undefined) {
+    saveData();
+}
+
 showData();
 
 // events
@@ -35,6 +44,6 @@ function saveData() {
 }
 
 function showData() {
-    todoList.innerHTML = localStorage.data;
+    todoList.innerHTML = localStorage.getItem('data');
 }
 
