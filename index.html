@@ -12,15 +12,15 @@
       <h1>Tasks</h1>
 
       <form>
-        <input type="text" id="task" name="task-name" placeholder="It's what you have ToDo">
+        <input type="text" id="task-input" placeholder="It's what you have ToDo">
         <button onclick="addTask();return false;">Add</button>
       </form>
     </div>
 
     <div class="tasks">
-      <div id="todo-container" class="todo-container">
+      <div id="todo-container">
         <h2>Todo</h2>
-        <ul id="todo-list">
+        <ul id="todo-list" class="droppable-list">
           <!--
             <li class="checked">Task 1</li>
             <li>Task 2</li>
@@ -28,27 +28,27 @@
           -->
         </ul>
       </div>
-      <div class="working-container">
+      <div id="working-container">
         <h2>Working on</h2>
-        <ul id="working-list">
+        <ul id="working-list" class="droppable-list">
 
         </ul>
       </div>
-      <div class="pending-container">
+      <div id="pending-container">
         <h2>Pending</h2>
-        <ul id="pending-list">
+        <ul id="pending-list" class="droppable-list">
 
         </ul>
       </div>
-      <div class="testing-container">
+      <div id="testing-container">
         <h2>Testing</h2>
-        <ul id="testing-list">
+        <ul id="testing-list" class="droppable-list">
 
         </ul>
       </div>
-      <div class="done-container">
+      <div id="done-container">
         <h2>Done</h2>
-        <ul id="done-list">
+        <ul id="done-list" class="droppable-list">
 
         </ul>
       </div>
