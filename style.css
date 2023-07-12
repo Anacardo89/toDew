@@ -7,7 +7,7 @@
 
 body {
   width: 100%;
-  min-height: 100vw;
+  min-height: 10vw;
   background: linear-gradient(55deg, rgba(114, 221, 216, 0.864), rgb(141, 230, 124));
   overflow: auto;
 }
@@ -82,12 +82,12 @@ body {
   padding-top: 0.5em;
 }
 
-.tasks div ul {
+.droppable-list {
   min-width: 175px;
-  min-height: 50px;
+  min-height: 150px;
 }
 
-.tasks div ul li{
+.droppable-list li{
   list-style: none;
   padding: 1em;
   padding-left: 2.3em;
@@ -95,12 +95,12 @@ body {
   position: relative;
 }
 
-.tasks div ul li.checked{
+.droppable-list li.checked{
   color: #555;
   text-decoration: line-through;
 }
 
-.tasks div ul li::before{
+.droppable-list li::before{
   content: '';
   position: absolute;
   height: 30px;
@@ -113,19 +113,19 @@ body {
   left: 8px;
   
 }
-.tasks div ul li.checked::before{
+.droppable-list li.checked::before{
   background-image: url(images/radio_button_check.png);
 }
 
-.tasks div ul li.checked:hover::before{
+.droppable-list li.checked:hover::before{
   background-image: url(images/radio_button_check.png);
 }
 
-.tasks div ul li:hover::before {
+.droppable-list li:hover::before {
   background-image: url(images/radio_button_hover.png);
 }
 
-.tasks div ul li span{
+.droppable-list li span{
   position: absolute;
   right: 5px;
   top: 10px;
@@ -136,7 +136,7 @@ body {
   line-height: 30px;
   text-align: center;
 }
-.tasks div ul li span:hover{
+.droppable-list li span:hover{
   background: rgba(225, 225, 225, 0.864);
   border-radius: 50%;
 }

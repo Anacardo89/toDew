@@ -1,49 +1,130 @@
-const inputBox = document.getElementById("task");
+// clearData();
 const todoList = document.getElementById("todo-list");
+const workingList = document.getElementById("working-list");
+const pendingList = document.getElementById("pending-list");
+const testingList = document.getElementById("testing-list");
+const doneList = document.getElementById("done-list");
+let draggedItem = null;
 
-const p = document.getElementsByTagName('ul');
-console.log(p);
 
 // NEEDED FOR FIREFOX
 // initializes empty localStorage.data if there is no data to show
 if (localStorage.data === undefined) {
-    saveData();
+  saveData();
 }
 
 showData();
+addUlListeners();
+addLiListeners();
 
-// events
-todoList.addEventListener('click', function(e) {
-    if (e.target.tagName === 'LI') {
-        e.target.classList.toggle('checked');
-    } else if (e.target.tagName === 'SPAN') {
-        e.target.parentElement.remove();
-    }
-    saveData();
-}, false);
 
 // functions
 function addTask() {
-    if (inputBox.value === '') {
-        alert("Cannot add what there isn't");
-    } else {
-        let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
-        let span = document.createElement("span");
-        span.innerHTML = '\u00d7';
-        li.appendChild(span);
-        todoList.appendChild(li);
-        
-    }
-    inputBox.value = '';
-    saveData();
+  const inputBox = document.getElementById("task-input");
+  if (inputBox.value === '') {
+    alert("Cannot add what there isn't");
+  } else {
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value;
+    li.classList.add('draggable-item')
+    li.setAttribute('draggable', 'true');
+    let span = document.createElement("span");
+    span.innerHTML = '\u00d7';
+    li.appendChild(span);
+    todoList.appendChild(li);
+  }
+  inputBox.value = '';
+  saveData();
+  addLiListeners();
 }
 
 function saveData() {
-    localStorage.setItem('data', todoList.innerHTML);
+    localStorage.setItem('tasks-todo', todoList.innerHTML);
+    localStorage.setItem('tasks-working', workingList.innerHTML);
+    localStorage.setItem('tasks-pending', pendingList.innerHTML);
+    localStorage.setItem('tasks-testing', testingList.innerHTML);
+    localStorage.setItem('tasks-done', doneList.innerHTML);
+}
+
+function clearData() {
+    localStorage.setItem('tasks-todo', '');
+    localStorage.setItem('tasks-working', '');
+    localStorage.setItem('tasks-pending', '');
+    localStorage.setItem('tasks-testing', '');
+    localStorage.setItem('tasks-done', '');
 }
 
 function showData() {
-    todoList.innerHTML = localStorage.getItem('data');
+    todoList.innerHTML = localStorage.getItem('tasks-todo');
+    workingList.innerHTML = localStorage.getItem('tasks-working');
+    pendingList.innerHTML = localStorage.getItem('tasks-pending');
+    testingList.innerHTML = localStorage.getItem('tasks-testing');
+    doneList.innerHTML = localStorage.getItem('tasks-done');
 }
 
+// event listeners
+function addLiListeners() {
+  const draggableItems = document.querySelectorAll('.draggable-item');
+  draggableItems.forEach(function(draggableItem) {
+    draggableItem.addEventListener('dragstart', handleDragStart);
+    draggableItem.addEventListener('dragend', handleDragEnd);
+  });
+}
+
+function addUlListeners() {
+  const droppableLists = document.querySelectorAll('.droppable-list');
+  droppableLists.forEach(function(droppableList) {
+    droppableList.addEventListener('dragover', handleDragOver);
+    droppableList.addEventListener('dragenter', handleDragEnter);
+    droppableList.addEventListener('dragleave', handleDragLeave);
+    droppableList.addEventListener('drop', handleDrop);
+    droppableList.addEventListener('click', handleClick);
+  });
+}
+
+// event handlers
+function handleDragStart() {
+  draggedItem = this;
+  this.classList.add('dragging');
+}
+  
+function handleDragEnd() {
+  draggedItem = null;
+  this.classList.remove('dragging');
+}
+
+function handleDragOver(e) {
+  e.preventDefault();
+  this.classList.add('dragover');
+}
+
+function handleDragLeave() {
+  this.classList.remove('dragover');
+}
+
+function handleDragEnter(e) {
+  e.preventDefault();
+}
+
+function handleClick(e) {
+  if (e.target.matches('li')) {
+    e.target.classList.toggle('checked');
+  } else if (e.target.matches('span')) {
+    e.target.parentElement.remove();
+  }
+  saveData();
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    let target = e.target;
+  
+    if (target.classList.contains('draggable-item')) {
+      target.parentNode.insertBefore(draggedItem, target.nextSibling);
+    } else if (target.classList.contains('droppable-list')) {
+      this.appendChild(draggedItem);
+    }
+  
+    this.classList.remove('dragover');
+    saveData();
+  }
