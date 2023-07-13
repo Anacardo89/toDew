@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
     <div class="new-task-container">
       <h1>Tasks</h1>
-
       <form>
         <input type="text" id="task-input" placeholder="It's what you have ToDo">
         <button onclick="addTask();return false;">Add</button>
@@ -18,40 +18,37 @@
     </div>
 
     <div class="tasks">
-      <div id="todo-container">
+
+      <div id="todo-container" class="task-container">
         <h2>Todo</h2>
-        <ul id="todo-list" class="droppable-list">
-          <!--
-            <li class="checked">Task 1</li>
-            <li>Task 2</li>
-            <li>Task 3</li>
-          -->
-        </ul>
+        <div id="todo-list" class="droppable-list">
+        </div>
       </div>
-      <div id="working-container">
+
+      <div id="working-container" class="task-container">
         <h2>Working on</h2>
-        <ul id="working-list" class="droppable-list">
-
-        </ul>
+        <div id="working-list" class="droppable-list">
+        </div>
       </div>
-      <div id="pending-container">
+
+      <div id="pending-container" class="task-container">
         <h2>Pending</h2>
-        <ul id="pending-list" class="droppable-list">
-
-        </ul>
+        <div id="pending-list" class="droppable-list">
+        </div>
       </div>
-      <div id="testing-container">
+
+      <div id="testing-container" class="task-container">
         <h2>Testing</h2>
-        <ul id="testing-list" class="droppable-list">
-
-        </ul>
+        <div id="testing-list" class="droppable-list">
+        </div>
       </div>
-      <div id="done-container">
+
+      <div id="done-container" class="task-container">
         <h2>Done</h2>
-        <ul id="done-list" class="droppable-list">
-
-        </ul>
+        <div id="done-list" class="droppable-list">
+        </div>
       </div>
+
     </div>
     
 	<script src="index.js"></script>
