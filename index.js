@@ -24,12 +24,14 @@ function addTask() {
   if (inputBox.value === '') {
     alert("Cannot add what there isn't");
   } else {
-    let li = document.createElement("li");
+    let li = document.createElement("div");
+    // let p = document.createElement("p");
     li.innerHTML = inputBox.value;
     li.classList.add('draggable-item')
     li.setAttribute('draggable', 'true');
     let span = document.createElement("span");
     span.innerHTML = '\u00d7';
+    // p.appendChild(span)
     li.appendChild(span);
     todoList.appendChild(li);
   }
@@ -107,7 +109,7 @@ function handleDragEnter(e) {
 }
 
 function handleClick(e) {
-  if (e.target.matches('li')) {
+  if (e.target.matches('div')) {
     e.target.classList.toggle('checked');
   } else if (e.target.matches('span')) {
     e.target.parentElement.remove();

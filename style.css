@@ -7,7 +7,7 @@
 
 body {
   width: 100%;
-  min-height: 10vw;
+  height: 100%;
   background: linear-gradient(55deg, rgba(114, 221, 216, 0.864), rgb(141, 230, 124));
   overflow: auto;
 }
@@ -69,38 +69,42 @@ body {
   margin: 10px 15px;
 }
 
-.tasks div {
+.task-container {
   background: white;
   color: rgb(14, 122, 158);
   width: 19.25%;
-  min-height: 10vw;
+  min-height: 150px;
   border-radius: 10px;
 }
 
-.tasks div h2 {
+.task-container h2 {
   text-align: center;
   padding-top: 0.5em;
 }
 
 .droppable-list {
-  min-width: 175px;
+  width: 100%; 
   min-height: 150px;
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
-.droppable-list li{
-  list-style: none;
+.draggable-item {
   padding: 1em;
   padding-left: 2.3em;
   cursor: pointer;
   position: relative;
+  margin: 3px 0;
+  border-radius: 8px;
 }
 
-.droppable-list li.checked{
+.draggable-item.checked {
   color: #555;
   text-decoration: line-through;
 }
 
-.droppable-list li::before{
+.draggable-item::before {
   content: '';
   position: absolute;
   height: 30px;
@@ -109,35 +113,42 @@ body {
   background-image: url(images/radio_button.png);
   background-size: cover;
   background-position: center;
-  top: 10px;
+  top: auto;
   left: 8px;
-  
 }
-.droppable-list li.checked::before{
+
+.draggable-item:hover {
+  background: rgba(225, 225, 225, 0.864);
+}
+
+.draggable-item.checked:hover {
+  background: rgba(225, 225, 225, 0.864);
+}
+
+.draggable-item.checked::before {
   background-image: url(images/radio_button_check.png);
 }
 
-.droppable-list li.checked:hover::before{
+.draggable-item.checked:hover::before {
   background-image: url(images/radio_button_check.png);
 }
 
-.droppable-list li:hover::before {
+.draggable-item:hover::before {
   background-image: url(images/radio_button_hover.png);
 }
 
-.droppable-list li span{
+.draggable-item span {
   position: absolute;
   right: 5px;
-  top: 10px;
-  width: 30px;
-  height: 30px;
+  bottom: 10px;
   font-size: 1.4rem;
   color: #555;
   line-height: 30px;
+  width: 30px;
   text-align: center;
 }
-.droppable-list li span:hover{
-  background: rgba(225, 225, 225, 0.864);
+.draggable-item span:hover {
+  background: rgba(136, 133, 133, 0.562);
   border-radius: 50%;
 }
 
