@@ -116,7 +116,7 @@ body {
   background-size: cover;
   background-position: center;
   top: auto;
-  left: 8px;
+  left: 4px;
 }
 
 .draggable-item:hover {
@@ -139,7 +139,13 @@ body {
   background-image: url(images/radio_button_hover.png);
 }
 
-.draggable-item span {
+.draggable-item p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete {
   position: absolute;
   right: 5px;
   font-size: 1.4rem;
@@ -150,8 +156,22 @@ body {
   background-size: cover;
   background-position: center;
 }
-.draggable-item span:hover {
+
+.delete:hover, .edit:hover {
   background: rgba(136, 133, 133, 0.562);
   border-radius: 50%;
 }
+
+/* .edit {
+  position: absolute;
+  right: 35px;
+  font-size: 1.4rem;
+  color: #555;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  background-size: auto;
+  background-position: center;
+} */
+
 
