@@ -95,8 +95,10 @@ body {
   padding-left: 2.3em;
   cursor: pointer;
   position: relative;
-  margin: 3px 0;
-  border-radius: 8px;
+  margin: 3px 3px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .draggable-item.checked {
@@ -140,12 +142,13 @@ body {
 .draggable-item span {
   position: absolute;
   right: 5px;
-  bottom: 10px;
   font-size: 1.4rem;
   color: #555;
   line-height: 30px;
   width: 30px;
   text-align: center;
+  background-size: cover;
+  background-position: center;
 }
 .draggable-item span:hover {
   background: rgba(136, 133, 133, 0.562);
