@@ -12,19 +12,28 @@ body {
   overflow: auto;
 }
 
+.top-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-side {
+  width: 75%;
+  display: flex;
+}
+
 .new-task-container {
   width:49%;
+  position: relative;
   background: white;
   border-radius: 10px;
+  margin:50px 0 0 15px;
   text-align: center;
-  margin-top:50px;
-  margin-left: 15px;
   overflow: auto;
 }
 
 .new-task-container h1 {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding: 0.5em 0;
   color: rgb(14, 122, 158);
 }
 
@@ -62,7 +71,35 @@ body {
   right: 5px;
 }
 
-.tasks {
+.save-button {
+  width: 15%;
+  margin: 136px 0 0 15px;
+  border-radius: 20px;
+  background: blue;
+  border: 0;
+  padding: 0.65em 2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  right: 5px;
+}
+
+.clear-button {
+  width: 15%;
+  margin: 136px 10px 0 0;
+  border-radius: 20px;
+  background: red;
+  border: 0;
+  padding: 0.65em 2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  right: 5px;
+}
+
+.task-containers {
   display: flex;
   align-items: top;
   justify-content: space-between;
@@ -101,48 +138,110 @@ body {
   align-items: center;
 }
 
-.draggable-item.checked {
-  color: #555;
-  text-decoration: line-through;
-}
-
 .draggable-item::before {
   content: '';
   position: absolute;
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background-image: url(images/radio_button.png);
   background-size: cover;
   background-position: center;
   top: auto;
   left: 4px;
 }
 
-.draggable-item:hover {
+.no-decor::before {
+  background-image: url(img/radio_button.png);
+}
+
+.no-decor:hover {
   background: rgba(225, 225, 225, 0.864);
 }
 
-.draggable-item.checked:hover {
-  background: rgba(225, 225, 225, 0.864);
+.no-decor:hover::before {
+  /* background-image: url(img/radio_button_wait_hover.png); PROD */
+  background-image: url(img/radio_button_check.png);
 }
 
-.draggable-item.checked::before {
-  background-image: url(images/radio_button_check.png);
+.wait {
+  color: rgb(255, 174, 0);
 }
 
-.draggable-item.checked:hover::before {
-  background-image: url(images/radio_button_check.png);
+.wait::before {
+  background-image: url(img/radio_button_wait.png);
 }
 
-.draggable-item:hover::before {
-  background-image: url(images/radio_button_hover.png);
+.wait:hover::before {
+  background-image: url(img/radio_button_check_hover.png);
 }
+
+.check {
+  color: rgb(36, 219, 100);
+  text-decoration: line-through;
+}
+
+.check::before {
+  background-image: url(img/radio_button_check.png);
+}
+
+.check:hover::before {
+  /*background-image: url(img/radio_button_warn_hover.png); PROD */
+  background-image: url(img/radio_button_check_hover.png);
+}
+
+.warn {
+  color: rgb(255, 0, 0);
+}
+
+.warn::before {
+  background-image: url(img/radio_button_warn.png);
+}
+
+.warn:hover::before {
+  background-image: url(img/radio_button.png);
+}
+
 
 .draggable-item p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.editable-item form {
+  padding: 1em;
+  cursor: pointer;
+  position: relative;
+  margin: 3px 3px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  background: rgba(225, 225, 225, 0.864);
+}
+
+.editable-item form [type="text"] { 
+  outline: none;
+  flex: 1;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 10px;
+  background: transparent;
+  border: 0;
+}
+
+.editable-item form button { 
+  border-radius: 20px;
+  background: rgba(50, 234, 167, 0.864);
+  border: 0;
+  padding: 0.95em 0.95em;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  margin: -0.3em;
+  position: absolute;
+  right: 5px;
 }
 
 .delete {
@@ -162,9 +261,10 @@ body {
   border-radius: 50%;
 }
 
-/* .edit {
+.edit {
   position: absolute;
   right: 35px;
+  padding-bottom: 0.3rem;
   font-size: 1.4rem;
   color: #555;
   line-height: 30px;
@@ -172,6 +272,4 @@ body {
   text-align: center;
   background-size: auto;
   background-position: center;
-} */
-
-
+}
