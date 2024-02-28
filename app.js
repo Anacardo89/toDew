@@ -135,33 +135,35 @@ function handleDragEnter(e) {
 }
 
 function handleClick(e) {
-  if (e.target.matches('.delete')) {
-    e.target.parentElement.parentElement.remove();
-  } else if (e.target.matches('.edit')) {
-    itemToForm(e);
-  } else if (e.target.matches('.draggable-item')) {
-    e.target.classList.toggle('check');
-  } else if (e.target.parentElement.matches('.draggable-item')) {
-    e.target.parentElement.classList.toggle('check');
+  if (e.target.matches('span')) {
+    if (e.target.matches('.delete')) {
+      e.target.parentElement.parentElement.remove();
+    } else if (e.target.matches('.edit')) {
+      itemToForm(e);
+    }
   }
-  // let itemState = ['no-decor', 'wait', 'check', 'warn']
-  // for (let i = 0; i < itemState.length; i++) {
-  //   if (e.target.classlist.contains(itemState[i])) {
-  //     if (i === length(itemState-1)) {
-  //       e.target.classList.add(itemState[0])
-  //     }
-  //     e.target.classList.add(itemState[i+1])
-  //     e.target.classList.remove(itemState[i])
-  //     return;
-  //   } else if (e.target.parentElement.classList.contains(itemState[i])) {
-  //     if (i === length(itemState-1)) {
-  //       e.target.parentElement.classList.add(itemState[0])
-  //     }
-  //     e.target.parentElement.classList.add(itemState[i+1])
-  //     e.target.parentElement.classList.remove(itemState[i])
-  //     return;
-  //   }
-  // }  
+  nextItemState(e)
+}
+
+function nextItemState(e) {
+  let itemState = ['no-decor', 'wait', 'check', 'warn']
+  for (let i = 0; i < itemState.length; i++) {
+    if (e.target.matches('.'+itemState[i])) {
+      if (i === itemState.length-1) {
+        e.target.classList.add(itemState[0])
+      }
+      e.target.classList.add(itemState[i+1])
+      e.target.classList.remove(itemState[i])
+      return;
+    } else if (e.target.parentElement.matches('.'+itemState[i])) {
+      if (i === itemState.length-1) {
+        e.target.parentElement.classList.add(itemState[0])
+      }
+      e.target.parentElement.classList.add(itemState[i+1])
+      e.target.parentElement.classList.remove(itemState[i])
+      return;
+    }
+  } 
 }
 
 function handleDrop(e) {

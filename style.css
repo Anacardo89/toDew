@@ -23,7 +23,7 @@ body {
 }
 
 .new-task-container {
-  width:49%;
+  width:51.5%;
   position: relative;
   background: white;
   border-radius: 10px;
@@ -60,7 +60,7 @@ body {
 
 .new-task-container form button { 
   border-radius: 20px;
-  background: rgba(50, 234, 167, 0.864);
+  background: green;
   border: 0;
   padding: 0.65em 2em;
   font-size: 1.1rem;
@@ -150,6 +150,10 @@ body {
   left: 4px;
 }
 
+.no-decor {
+  color: rgb(141, 158, 14);
+}
+
 .no-decor::before {
   background-image: url(img/radio_button.png);
 }
@@ -159,12 +163,11 @@ body {
 }
 
 .no-decor:hover::before {
-  /* background-image: url(img/radio_button_wait_hover.png); PROD */
-  background-image: url(img/radio_button_check.png);
+  background-image: url(img/radio_button_wait_hover.png);
 }
 
 .wait {
-  color: rgb(255, 174, 0);
+  color: rgb(255, 153, 0);
 }
 
 .wait::before {
@@ -176,7 +179,7 @@ body {
 }
 
 .check {
-  color: rgb(36, 219, 100);
+  color: rgb(19, 187, 78);
   text-decoration: line-through;
 }
 
@@ -185,8 +188,7 @@ body {
 }
 
 .check:hover::before {
-  /*background-image: url(img/radio_button_warn_hover.png); PROD */
-  background-image: url(img/radio_button_check_hover.png);
+  background-image: url(img/radio_button_warn_hover.png);
 }
 
 .warn {
