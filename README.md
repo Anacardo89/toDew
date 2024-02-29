@@ -20,4 +20,4 @@ I used this as a base to better unsderstand event-handling and as an opportunity
 - that's about it
 
 #### Disclaimer:
-For hygiene purposes the creator strongly advises against checking out the css file as it is a cesspool and you might catch something nasty, but then again what css file isn't **AMIRITE!?** _Heh..._ _...heh..._ \*weep\*
+For public health purposes the creator strongly advises against checking out the css file as it is a cesspool and you might catch something nasty, but then again what css file isn't **AMIRITE!?** _Heh..._ _...heh..._ \*weep\*
