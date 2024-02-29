@@ -1,4 +1,5 @@
 # ToDew - ToDo for DumDums
+![image](img/demo.gif)
 
 **ToDew is ToDo for DumDums:**
 1. shainy colors
